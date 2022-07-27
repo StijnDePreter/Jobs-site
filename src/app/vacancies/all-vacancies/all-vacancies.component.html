@@ -1,0 +1,20 @@
+<h1>All Vacancies</h1>
+
+<p><button (click)="sortVacancies()">Sort by date</button></p>
+
+<!-- <input 
+ 
+(input)="searchVacancies(term)"
+ [(ngModel)]="term" /> -->
+
+ <!-- Search box -->
+<input type="text" [(ngModel)]="term" placeholder="Search" />
+
+<!-- List of categories -->
+<!-- <ul>
+  <li *ngFor="let Vacancy of (Vacancies$ | async) " [Vacancy]="Vacancy">
+	{{Vacancy.title}}
+  </li>
+</ul> -->
+
+<app-Vacancy *ngFor="let Vacancy of (Vacancies$ | async) | filterList : term : 'title'" [Vacancy]="Vacancy"></app-Vacancy>

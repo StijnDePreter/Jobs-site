@@ -1,0 +1,6 @@
+<p>company works!</p>
+
+<article *ngIf="company">
+    <h1>{{company.name}}</h1>
+    <button (click)="detail(company.id)">Read more</button>
+</article>

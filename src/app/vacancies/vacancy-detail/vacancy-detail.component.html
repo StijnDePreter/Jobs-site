@@ -1,0 +1,8 @@
+<p>vacancy-detail works!</p>
+
+<article *ngIf="vacancy">
+    <h1>{{vacancy.title}}</h1>
+    <h4>{{vacancy.company.name}}</h4>
+    <h4>{{vacancy.expirationDate}}</h4>
+    <button (click)="applyForVacancy(vacancy.id)">try getting this job</button>
+</article>

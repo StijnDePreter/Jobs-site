@@ -1,0 +1,6 @@
+<article *ngIf="Vacancy">
+    <h1>{{Vacancy.title}}</h1>
+    <h4>{{Vacancy.expirationDate}}</h4>
+    <h4>{{Vacancy.company.name}}</h4>
+    <button (click)="detail(Vacancy.id)">Read more</button>
+</article>
