@@ -15,5 +15,8 @@
         <li *ngIf="authService.isLoggedIn()" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/logout">Logout</a>
         </li>
+        <li *ngIf="authService.isLoggedIn()" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" routerLink="/userprofile">View profile</a>
+        </li>
       </ul>
 </nav>
