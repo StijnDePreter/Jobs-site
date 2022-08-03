@@ -17,6 +17,7 @@ import { CompanyModule } from './company/company.module';
 import {AngularFireModule} from '@angular/fire/compat';
 import {environment} from '../environments/environment';
 import {AngularFireStorageModule} from '@angular/fire/compat/storage';
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {AngularFireStorageModule} from '@angular/fire/compat/storage';
     FormsModule,
     SecurityModule,
     VacanciesModule,
+    UserModule,
     ApplicationsModule,
     CompanyModule,
     ReactiveFormsModule,

@@ -11,6 +11,8 @@ import { ApplicationFormComponent } from './applications/application-form/applic
 import { MyCompaniesComponent } from './company/my-companies/my-companies.component';
 import { CompanyDetailComponent } from './company/company-detail/company-detail.component';
 import { CompanyFormComponent } from './company/company-form/company-form.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { ProfileFormComponent } from './user/profile-form/profile-form.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'mycompanies', component: MyCompaniesComponent},
   { path: 'company/:id', component: CompanyDetailComponent},
   { path: 'companyform', component: CompanyFormComponent},
+  { path: 'userprofile', component: ProfileComponent},
+  { path: 'userprofile/edit', component: ProfileFormComponent},
   
   { path: 'login', component: SecurityComponent},
   { path: 'register', component: SecurityComponent},
