@@ -1,0 +1,33 @@
+<p>company-admins works!</p>
+
+
+<table class="table" *ngIf="companies && companies.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Company Admin</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let company of companies; let i = index" [attr.data-index]="i">
+            <th scope="row">{{i}}</th>
+            <td>{{company.name}}</td>
+            <td>
+                <select 
+                    class="custom-select" 
+                    (change)="onChange($event, i)" 
+                    
+                    [(ngModel)]='company.userId' 
+                    class='form-control'
+                >
+                    <option 
+                        *ngFor="let user of users" 
+                        [ngValue]="user.id"
+                        >{{user.userName}}
+                    </option>
+                  </select>
+            </td>
+        </tr>
+    </tbody>
+</table>

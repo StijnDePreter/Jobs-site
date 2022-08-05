@@ -18,6 +18,7 @@ import {AngularFireModule} from '@angular/fire/compat';
 import {environment} from '../environments/environment';
 import {AngularFireStorageModule} from '@angular/fire/compat/storage';
 import { UserModule } from './user/user.module';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { UserModule } from './user/user.module';
     UserModule,
     ApplicationsModule,
     CompanyModule,
+    AdminModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule

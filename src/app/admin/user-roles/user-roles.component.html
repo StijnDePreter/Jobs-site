@@ -1,0 +1,36 @@
+<p>user-roles works!</p>
+
+
+
+
+
+<table class="table" *ngIf="users && users.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">userRole</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users; let i = index" [attr.data-index]="i">
+            <th scope="row">{{user.id}}</th>
+            <td>{{user.userName}}</td>
+            <td>
+                <select 
+                    class="custom-select" 
+                    (change)="onChange($event, user.id, i)" 
+                    
+                    [(ngModel)]='user.userRoleId' 
+                    class='form-control'
+                >
+                    <option 
+                        *ngFor="let userRole of userRoles" 
+                        [ngValue]="userRole.id"
+                        >{{userRole.name}}
+                    </option>
+                  </select>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -13,6 +13,8 @@ import { CompanyDetailComponent } from './company/company-detail/company-detail.
 import { CompanyFormComponent } from './company/company-form/company-form.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { ProfileFormComponent } from './user/profile-form/profile-form.component';
+import { UserRolesComponent } from './admin/user-roles/user-roles.component';
+import { CompanyAdminsComponent } from './admin/company-admins/company-admins.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path: 'companyform', component: CompanyFormComponent},
   { path: 'userprofile', component: ProfileComponent},
   { path: 'userprofile/edit', component: ProfileFormComponent},
+  { path: 'users',  component: UserRolesComponent},
+  { path: 'companyadmins',  component: CompanyAdminsComponent},
   
   { path: 'login', component: SecurityComponent},
   { path: 'register', component: SecurityComponent},
