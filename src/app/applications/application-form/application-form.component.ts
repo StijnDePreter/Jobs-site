@@ -32,7 +32,7 @@ export class ApplicationFormComponent implements OnInit, OnDestroy {
   });
 
   application: Application = {
-    // id: 0,
+    id: 0,
     userId: 0,
     // user:
     // {

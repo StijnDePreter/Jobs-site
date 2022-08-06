@@ -4,5 +4,16 @@
     <h1>{{vacancy.title}}</h1>
     <h4>{{vacancy.company.name}}</h4>
     <h4>{{vacancy.expirationDate}}</h4>
+    <div *ngIf="!myApplication">
     <button (click)="applyForVacancy(vacancy.id)">try getting this job</button>
+    </div>
+
+    <div *ngIf="myApplication">
+        <p>You have already applied for this job. You're motivation was:
+            {{myApplication.motivation}}
+        </p>
+        <button (click)="deleteApplication()">Delete application</button>
+    </div>
+
+
 </article>
