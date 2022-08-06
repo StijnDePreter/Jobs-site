@@ -32,6 +32,8 @@ export class VacancyDetailComponent implements OnInit {
     }
   }
 
+  
+
   applyForVacancy(id: number) {
     console.log(id)
     this.router.navigate(['/applyforvacancy', id]);
