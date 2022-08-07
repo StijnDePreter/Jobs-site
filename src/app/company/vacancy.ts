@@ -1,7 +1,7 @@
 export interface Vacancy {
     id: number;
     title: string;
-    expirationDate: string;
+    expirationDate: Date;
     description: string;
     profile: string;
     offer: string;

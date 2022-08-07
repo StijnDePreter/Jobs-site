@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { CompanyService } from '../company.service';
@@ -14,7 +14,7 @@ export class CompanyVacanciesComponent implements OnInit {
 
   Vacancies: Vacancy[] = [];
 
-  constructor(private CompanyService: CompanyService,private route: ActivatedRoute,) { }
+  constructor(private CompanyService: CompanyService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const companyId = this.route.snapshot.paramMap.get('id');
@@ -22,6 +22,15 @@ export class CompanyVacanciesComponent implements OnInit {
       this.CompanyService.getCompanyVacancies(+companyId).subscribe(result => this.Vacancies = result);
     }
   }
+
+  edit(id: number): void {
+    this.router.navigate(['vacancyform'], { state: { id: id, mode: 'edit' } });
+  }
+
+
+  // Applications(vacancyId: number) {
+  //   this.router.navigate(["applications"]);
+  // }
 }
 
 

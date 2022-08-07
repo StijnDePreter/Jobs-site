@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { Vacancy } from '../vacancy';
+import { VacancyWithCompany } from '../vacancyWithCompany';
 import { VacancyService } from '../vacancy.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { VacancyService } from '../vacancy.service';
 })
 export class AllVacanciesComponent implements OnInit {
 
-  Vacancies$: Observable<Vacancy[]> = new Observable<Vacancy[]>();
+  Vacancies$: Observable<VacancyWithCompany[]> = new Observable<VacancyWithCompany[]>();
 
   term: string = ""
 

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Application } from 'src/app/applications/application';
-import { Vacancy } from '../vacancy';
+import { ApplicationWithUser } from '../application';
+import { VacancyWithCompany } from '../vacancyWithCompany';
 import { VacancyService } from '../vacancy.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class VacancyDetailComponent implements OnInit {
 
   applied: boolean =false;
 
-  vacancy: Vacancy = {
+  vacancy: VacancyWithCompany = {
     id: 0,
     title: "",
     expirationDate: "",
@@ -38,6 +39,8 @@ export class VacancyDetailComponent implements OnInit {
   deleteApplication$: Subscription = new Subscription();
   errorMessage: any;
 
+  applications: ApplicationWithUser[] = [];
+
   constructor(private vacancyService: VacancyService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -47,12 +50,9 @@ export class VacancyDetailComponent implements OnInit {
       this.vacancy$ = this.vacancyService.getVacancyById(+vacancyId).subscribe(result => this.vacancy = result);
       this.application$ =this.vacancyService.getMyApplication(+vacancyId).subscribe(result => this.myApplication = result);
       
-      // console.log(this.myApplication);
-
-      // if (this.myApplication.motivation != ""){
-      //   this.applied = true;
-      //   console.log("alreay applied")
-      // }
+      this.vacancyService.getVacancyApplications(+vacancyId).subscribe(result => this.applications = result);
+      
+      
       
     }
 

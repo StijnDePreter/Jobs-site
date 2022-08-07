@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Vacancy } from 'src/app/vacancies/vacancy';
+import { VacancyWithCompany } from 'src/app/vacancies/vacancyWithCompany';
 import { Application } from '../application';
 import { ApplicationsService } from '../applications.service';
 
@@ -15,7 +15,7 @@ export class ApplicationFormComponent implements OnInit, OnDestroy {
 
   // vacancyId: number = 0;
 
-  vacancy: Vacancy = {
+  vacancy: VacancyWithCompany = {
     id: 0,
     title: "",
     expirationDate: "",

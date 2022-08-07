@@ -1,6 +1,6 @@
 import { Company } from "../company/company";
 
-export interface Vacancy {
+export interface VacancyWithCompany {
     id: number;
     title: string;
     expirationDate: string;
