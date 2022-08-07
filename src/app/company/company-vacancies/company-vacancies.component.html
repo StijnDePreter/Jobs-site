@@ -1,9 +1,11 @@
 <p>company-vacancies works!</p>
 
-<div *ngFor="let Vacancy of Vacancies">
-    <h1>{{Vacancy.title}}</h1>
-    <h4>{{Vacancy.expirationDate}}</h4>
-    <!-- <button (click)="detail(Vacancy.id)">Read more</button> -->
+<div *ngFor="let vacancy of Vacancies">
+    <h1>{{vacancy.title}}</h1>
+    <h4>{{vacancy.expirationDate}}</h4>
+    <!-- <button (click)="Applications(Vacancy.id)">see applications of this vacancy</button> -->
+    <button (click)="edit(vacancy.id)">Edit this vacancy's information</button>
+
 </div>
 
 

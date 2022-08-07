@@ -8,7 +8,9 @@ import { VacancyService } from './vacancy.service';
 import { AllVacanciesComponent } from './all-vacancies/all-vacancies.component';
 import { FilterListPipe } from './filter-list.pipe';
 import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VacancyApplicationsComponent } from './vacancy-applications/vacancy-applications.component';
+import { VacancyFormComponent } from './vacancy-form/vacancy-form.component';
 
 
 
@@ -27,10 +29,13 @@ import { FormsModule } from '@angular/forms';
     AllVacanciesComponent,
     VacancyComponent,
     VacancyDetailComponent,
-    FilterListPipe
+    FilterListPipe,
+    VacancyApplicationsComponent,
+    VacancyFormComponent
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     CommonModule
   ],
   exports: [

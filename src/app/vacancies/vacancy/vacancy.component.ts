@@ -15,7 +15,7 @@
 // }
 
 import { Component, Input, OnInit } from '@angular/core';
-import { Vacancy } from '../vacancy';
+import { VacancyWithCompany } from '../vacancyWithCompany';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,7 +24,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./Vacancy.component.scss']
 })
 export class VacancyComponent implements OnInit {
-    @Input() Vacancy: Vacancy = {
+    @Input() Vacancy: VacancyWithCompany = {
     id: 0,
     title: "",
     expirationDate: "",

@@ -11,6 +11,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompanyFormComponent } from './company-form/company-form.component';
 import { CompanyVacanciesComponent } from './company-vacancies/company-vacancies.component';
+// import { CompanyVacancyAppicationsComponent } from './company-vacancy-appications/company-vacancy-appications.component';
 
 
 
@@ -20,7 +21,7 @@ import { CompanyVacanciesComponent } from './company-vacancies/company-vacancies
     CompanyComponent,
     CompanyDetailComponent,
     CompanyFormComponent,
-    CompanyVacanciesComponent
+    CompanyVacanciesComponent,
   ],
   imports: [
     CommonModule,

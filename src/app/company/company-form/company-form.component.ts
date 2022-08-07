@@ -50,7 +50,6 @@ export class CompanyFormComponent implements OnInit, OnDestroy {
   uploadProgress: number | undefined;
 
   constructor(private router: Router, private companyService: CompanyService, private angularFireStorage: AngularFireStorage) {
-    console.log("constructor form")
     this.isAdd = this.router.getCurrentNavigation()?.extras.state?.mode === 'add';
     this.isEdit = this.router.getCurrentNavigation()?.extras.state?.mode === 'edit';
     this.companyId = +this.router.getCurrentNavigation()?.extras.state?.id;
@@ -81,7 +80,6 @@ export class CompanyFormComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     this.isSubmitted = true;
-    //img code -- voor in de toekomst mss?
 
     if (this.imageFile === undefined && this.isAdd) {
       this.isSubmitted = false;
@@ -105,8 +103,8 @@ export class CompanyFormComponent implements OnInit, OnDestroy {
       }
     }
 
-    
-    
+
+
   }
 
   submitData() {

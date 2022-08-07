@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Vacancy } from '../vacancies/vacancy';
+import { VacancyWithCompany } from '../vacancies/vacancyWithCompany';
 import { Application } from './application';
 
 @Injectable({
@@ -25,8 +25,8 @@ export class ApplicationsService {
   //   return this.httpClient.get<Application[]>("http://localhost:44359/Applications");
   // }
 
-  getVacancyById(id: number): Observable<Vacancy> {
-    return this.httpClient.get<Vacancy>("https://localhost:44359/api/Vacancies/" + id);
+  getVacancyById(id: number): Observable<VacancyWithCompany> {
+    return this.httpClient.get<VacancyWithCompany>("https://localhost:44359/api/Vacancies/" + id);
   }
 
   postApplication(Application: Application): Observable<Application> {

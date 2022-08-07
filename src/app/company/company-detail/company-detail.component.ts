@@ -43,7 +43,7 @@ export class CompanyDetailComponent implements OnInit {
 
   edit(id: number): void {
     console.log("navigate to company form")
-    this.router.navigate(['companyform'], {state: {id: id, mode: 'edit'}});
+    this.router.navigate(['companyform'], { state: { id: id, mode: 'edit' } });
 
   }
 
@@ -57,6 +57,10 @@ export class CompanyDetailComponent implements OnInit {
       //error
       this.errorMessage = error.message;
     });
+  }
+
+  addVacancy() {
+    this.router.navigate(['vacancyform'], { state: {companyId: this.company.id, mode: 'add' } });
   }
 
   // getCompanies() {
