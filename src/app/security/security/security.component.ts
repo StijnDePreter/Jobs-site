@@ -11,11 +11,16 @@ import { Router } from '@angular/router';
 export class SecurityComponent implements OnInit {
   user: User = {
     id: 0,
+    firstName: '',
+    lastName: '',
+    userName: '',
     email: '',
     password: '',
     token: '',
     userRole: {id:0,name:""}
   };
+
+  passwordCheck: string ="";
 
   isSubmitted: boolean = false;
   errorMessage: string = '';
@@ -23,6 +28,7 @@ export class SecurityComponent implements OnInit {
   isLogin: boolean = false;
   isRegister: boolean = false;
   isLogout: boolean = false;
+  title: string = "Login";
 
   constructor(private authService: AuthService, private router: Router) {
 
@@ -31,6 +37,7 @@ export class SecurityComponent implements OnInit {
     switch (this.router.url) {
       case '/login': {
         this.isLogin = true;
+        this.title = "Login";
         break;
       }
       case '/logout': {
@@ -41,6 +48,7 @@ export class SecurityComponent implements OnInit {
       }
       case '/register': {
         this.isRegister = true;
+        this.title = "Register new Account"
         break;
       }
       default: {
@@ -54,35 +62,12 @@ export class SecurityComponent implements OnInit {
     this.isSubmitted = true;
 
     if (this.isLogin) {
-      this.authService.authenticate(this.user).subscribe(result => {
-        this.errorMessage = '';
-        // save access token localstorage
-        console.log(result)
-
-        localStorage.setItem('token', result.token);
-
-        // localStorage.setItem('token', result.accessToken);
-        localStorage.setItem('id', result.id.toString());
-        localStorage.setItem('email', result.email);
-        localStorage.setItem('userRole', result.userRole.name);
-        this.router.navigate(['']);
-      }, error => {
-        this.errorMessage = 'Email/password not correct!';
-        this.isSubmitted = false;
-      });
-    } 
-
-    if (this.isRegister) {
-      this.errorMessage = "registering module is not finished!";
-
+      this.Login();
       // this.authService.authenticate(this.user).subscribe(result => {
       //   this.errorMessage = '';
       //   // save access token localstorage
-      //   console.log(result)
-
       //   localStorage.setItem('token', result.token);
 
-      //   // localStorage.setItem('token', result.accessToken);
       //   localStorage.setItem('id', result.id.toString());
       //   localStorage.setItem('email', result.email);
       //   localStorage.setItem('userRole', result.userRole.name);
@@ -94,5 +79,47 @@ export class SecurityComponent implements OnInit {
     } 
 
 
+
+    if (this.isRegister) {
+      if (this.passwordCheck == this.user.password) {
+        this.isSubmitted = true;
+        this.authService.register(this.user).subscribe(result => {
+          this.errorMessage = '';
+          // // save access token localstorage
+          // localStorage.setItem('token', result.token);
+  
+          // localStorage.setItem('id', result.id.toString());
+          // localStorage.setItem('email', result.email);
+          // localStorage.setItem('userRole', result.userRole.name);
+          this.Login();
+        }, error => {
+          this.errorMessage = error.error.message;
+          this.isSubmitted = false;
+        });
+      } else {
+        this.errorMessage = "The password check failed";
+        this.isSubmitted = false;
+      }
+    } 
+  }
+
+  Login(): void {
+    this.authService.authenticate(this.user).subscribe(result => {
+      this.errorMessage = '' + 'login error';
+      console.log("login");
+      console.log(result);
+
+      
+      // save access token localstorage
+      localStorage.setItem('token', result.token);
+
+      localStorage.setItem('id', result.id.toString());
+      localStorage.setItem('email', result.email);
+      localStorage.setItem('userRole', result.userRole.name);
+      this.router.navigate(['']);
+    }, error => {
+      this.errorMessage = 'Email/password not correct!';
+      this.isSubmitted = false;
+    });
   }
 }

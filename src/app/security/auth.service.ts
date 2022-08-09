@@ -16,19 +16,20 @@ export class AuthService {
     return localStorage.getItem('token') ?? '';
   }
 
-  getUser(): User | null {
-    if (this.isLoggedIn()) {
-      return {
-        id: parseInt(localStorage.getItem('id') ?? '0'),
-        email: localStorage.getItem('email') ?? '',
-        password: '',
-        token: this.getToken(),
-        userRole: { id: 0, name: "" }
-      };
-    } else {
-      return null;
-    }
-  }
+  // getUser(): User | null {
+  //   if (this.isLoggedIn()) {
+  //     return {
+  //       id: parseInt(localStorage.getItem('id') ?? '0'),
+
+  //       email: localStorage.getItem('email') ?? '',
+  //       password: '',
+  //       token: this.getToken(),
+  //       userRole: { id: 0, name: "" }
+  //     };
+  //   } else {
+  //     return null;
+  //   }
+  // }
 
   deleteToken(): void {
     localStorage.removeItem('token');
@@ -46,7 +47,7 @@ export class AuthService {
   }
 
   register(user: User): Observable<UserResponse> {
-    return this.httpClient.post<UserResponse>('http://localhost:3000/register', user);
+    return this.httpClient.post<UserResponse>('https://localhost:44359/api/Users/register', user);
   }
 
   isAdminOrCompanyAdmin(): boolean {
