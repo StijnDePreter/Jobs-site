@@ -50,6 +50,12 @@ export class AuthService {
     return this.httpClient.post<UserResponse>('https://localhost:44359/api/Users/register', user);
   }
 
+
+  isAdmin(): boolean {
+    let adminRole: string = "SuperAdmin"
+    return adminRole == (localStorage.getItem('userRole')) ;
+  }
+
   isAdminOrCompanyAdmin(): boolean {
     let listOfAdmins: Array<string|null>;
     listOfAdmins =
