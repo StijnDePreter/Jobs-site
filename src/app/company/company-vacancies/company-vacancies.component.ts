@@ -28,9 +28,6 @@ export class CompanyVacanciesComponent implements OnInit {
   }
 
 
-  // Applications(vacancyId: number) {
-  //   this.router.navigate(["applications"]);
-  // }
 }
 
 

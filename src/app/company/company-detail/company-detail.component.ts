@@ -11,10 +11,6 @@ import { CompanyService } from '../company.service';
 })
 export class CompanyDetailComponent implements OnInit {
 
-  // constructor() { }
-
-  // ngOnInit(): void {
-  // }
 
   errorMessage: string = '';
   deleteCompanie$: Subscription = new Subscription();
@@ -32,29 +28,20 @@ export class CompanyDetailComponent implements OnInit {
     const companyId = this.route.snapshot.paramMap.get('id');
     if (companyId != null) {
       this.companyService.getCompanyById(+companyId).subscribe(result => this.company = result);
-      console.log(companyId);
     }
   }
 
-  //verplatsen naar de my companies.
-  // add(id: number): void {
-  //   this.router.navigate(['company/form',id], {state: {id: id, mode: 'add'}});
-  // }
-
   edit(id: number): void {
-    console.log("navigate to company form")
     this.router.navigate(['companyform'], { state: { id: id, mode: 'edit' } });
 
   }
 
   delete(id: number) {
     this.deleteCompanie$ = this.companyService.deleteCompany(id).subscribe(result => {
-      //all went well
-      // this.getCompanies();
       alert("The company " + this.company.name + " has been deleted");
       this.router.navigate(["mycompanies"]);
     }, error => {
-      //error
+
       this.errorMessage = error.message;
     });
   }
@@ -62,9 +49,5 @@ export class CompanyDetailComponent implements OnInit {
   addVacancy() {
     this.router.navigate(['vacancyform'], { state: {companyId: this.company.id, mode: 'add' } });
   }
-
-  // getCompanies() {
-  //   this.companies$ = this.CompanyService.getCompanies().subscribe(result => this.companies = result);
-  // }
 
 }

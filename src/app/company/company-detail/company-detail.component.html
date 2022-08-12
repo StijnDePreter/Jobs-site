@@ -1,12 +1,3 @@
-<!-- <article *ngIf="company">
-    <h1>{{company.name}}</h1>
-    <img *ngIf="company.picture" class="card-img-top" src="{{company.picture}}" alt="Company Logo">
-    <h4>{{company.description}}</h4>
-
-    <button (click)="edit(company.id)">Edit this company's information</button>
-    <button class="btn btn-danger" (click)="delete(company.id)">Delete {{company.name}} and all vacancies related to {{company.name}} </button>
-</article> -->
-
 
 <div class="card" style="width: 18rem;">
 <img *ngIf="company.picture" class="card-img-top" src="{{company.picture}}" alt="Company Logo">
@@ -28,7 +19,7 @@
     
 </div>
 
-<!-- <button (click)="addVacancy(company.id)">Add a company</button> -->
+
 <button type="button" class="btn btn-success addBtn" (click)="addVacancy()"><i class="fas fa-plus"></i> Add new vacancy</button>
 
 

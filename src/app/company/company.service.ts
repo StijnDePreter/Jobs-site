@@ -36,9 +36,6 @@ export class CompanyService {
   }
 
   putCompany(id: number, company: Company): Observable<Company> {
-
-    console.log(id, company);
-
     return this.httpClient.put<Company>("https://localhost:44359/api/Companies/" + id, company);
   }
 

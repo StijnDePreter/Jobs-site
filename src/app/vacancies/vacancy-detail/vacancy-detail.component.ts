@@ -45,7 +45,6 @@ export class VacancyDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const vacancyId = this.route.snapshot.paramMap.get('id');
-    //console.log(this.route.snapshot.paramMap.get('test'));
     if (vacancyId != null) {
       this.vacancy$ = this.vacancyService.getVacancyById(+vacancyId).subscribe(result => this.vacancy = result);
       this.application$ =this.vacancyService.getMyApplication(+vacancyId).subscribe(result => this.myApplication = result);
@@ -60,21 +59,16 @@ export class VacancyDetailComponent implements OnInit {
   }
 
   applyForVacancy(id: number) {
-    console.log(this.myApplication)
     this.router.navigate(['/applyforvacancy', id]);
   }
 
   deleteApplication() {
-    console.log("delete")
-    // console.log(this.myApplication.motivation)
 
     if (this.myApplication != null){
       this.deleteApplication$ = this.vacancyService.deleteApplication(this.myApplication.id).subscribe(result => {
-      console.log('deleete successfully')
       this.application$ =this.vacancyService.getMyApplication(this.vacancy.id).subscribe(result => this.myApplication = result);
     }, error => {
-      //error
-      console.log('deleete failed')
+
       this.errorMessage = error.message;
     });
 

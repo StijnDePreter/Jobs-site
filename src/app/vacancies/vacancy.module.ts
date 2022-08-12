@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { VacancyComponent } from './vacancy/vacancy.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SecurityInterceptor } from '../security/security.interceptor';
-// import { AllVacanciesComponent } from './all-vacancies/all-vacancies.component';
 import { VacancyService } from './vacancy.service';
 import { AllVacanciesComponent } from './all-vacancies/all-vacancies.component';
 import { FilterListPipe } from './filter-list.pipe';
@@ -13,16 +12,6 @@ import { VacancyApplicationsComponent } from './vacancy-applications/vacancy-app
 import { VacancyFormComponent } from './vacancy-form/vacancy-form.component';
 
 
-
-// @NgModule({
-//   declarations: [
-//     VacancyComponent
-//   ],
-//   imports: [
-//     CommonModule
-//   ]
-// })
-// export class VacancyModule { }
 
 @NgModule({
   declarations: [

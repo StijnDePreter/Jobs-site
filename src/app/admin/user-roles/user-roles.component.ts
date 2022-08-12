@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { User } from '../user';
 import { AdminService } from '../admin.service';
 import { UserRole } from 'src/app/security/userRole';
-import { makeBindingParser } from '@angular/compiler';
 
 @Component({
   selector: 'app-user-roles',
@@ -34,7 +33,6 @@ export class UserRolesComponent implements OnInit {
   constructor(private AdminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
-    // this.users = this.UserService.getUsers();
     this.getUsers();
     this.getUserRoles();
   }
@@ -48,10 +46,6 @@ export class UserRolesComponent implements OnInit {
   }
 
   onChange(event: any, userId: number, index:number): void {
-    console.log("index: " + index)
-    console.log(this.users);
-    // userId = event.target.value
-    console.log(userId);
     this.changingUser = this.users.find(u => u.id === userId) ?? this.changingUser;
     this.newUserRoleId = Object.values(event.target.value)[3] as number;
     
@@ -59,11 +53,7 @@ export class UserRolesComponent implements OnInit {
 
     if (this.changingUser.id > 0) {
       this.putUser$ = this.AdminService.putUser(this.changingUser).subscribe(result => {
-        //all went well
-        console.log("all went well");
         this.getUsers();
-        // this.users[index].userRoleId = this.newUserRoleId
-        // this.users[index].userRole.name = "User"
       },
         error => {
           this.errorMessage = error.message;

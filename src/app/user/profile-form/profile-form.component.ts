@@ -34,7 +34,6 @@ export class ProfileFormComponent implements OnInit, OnDestroy {
     if (this.userId != null && this.userId > 0) {
       this.user$ = this.userService.getUser().subscribe(result => {
         this.userForm.setValue({
-          // id : this.userId,
           userName: result.userName,
           phone: result.phone,
           address: result.address,
@@ -49,7 +48,6 @@ export class ProfileFormComponent implements OnInit, OnDestroy {
     this.isSubmitted = true;
 
     this.putUser$ = this.userService.putUser(this.userForm.value).subscribe(result => {
-      //all went well
       this.router.navigateByUrl("/userprofile");
     },
       error => {

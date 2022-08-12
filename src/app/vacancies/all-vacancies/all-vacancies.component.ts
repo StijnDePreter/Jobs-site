@@ -25,7 +25,6 @@ export class AllVacanciesComponent implements OnInit {
 
 
   sortVacancies() {
-    console.log(this.AlreadySorted);
 
     if (this.AlreadySorted) {
       this.AlreadySorted = false;

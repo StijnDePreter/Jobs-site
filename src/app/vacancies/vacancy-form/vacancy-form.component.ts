@@ -60,8 +60,6 @@ export class VacancyFormComponent implements OnInit, OnDestroy {
     // this.vacancy.companyId = this.companyId
 
     if (this.vacancyId != null && this.vacancyId > 0) {
-      console.log("form wordt ingevuld")
-      console.log(this.vacancyForm.value);
       this.vacancy$ = this.vacancyService.getVacancyById(this.vacancyId).subscribe(result => {
         this.vacancyForm.setValue({
           title: result.title,
@@ -90,13 +88,11 @@ export class VacancyFormComponent implements OnInit, OnDestroy {
 
     this.vacancy = this.vacancyForm.value;
     
-
-    // voorgaande code
     if (this.isAdd) {
       this.vacancy.companyId = this.companyId
-      console.log(this.vacancy);
+
       this.postVacancy$ = this.vacancyService.postVacancy(this.vacancy).subscribe(result => {
-        //all went well
+
         this.router.navigateByUrl("/mycompanies");
       },
         error => {
@@ -104,11 +100,8 @@ export class VacancyFormComponent implements OnInit, OnDestroy {
         });
     }
     if (this.isEdit) {
-      // this.companyForm.addControl("id", this.companyForm)
-      console.log(this.vacancyForm);
-      console.log(this.vacancy)
       this.putVacancy$ = this.vacancyService.putVacancy(this.vacancyId, this.vacancy).subscribe(result => {
-        //all went well
+
         this.router.navigateByUrl("/mycompanies");
       },
         error => {

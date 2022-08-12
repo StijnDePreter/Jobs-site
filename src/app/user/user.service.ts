@@ -12,17 +12,12 @@ export class UsersService {
   }
 
 
-//   getUsers(): Observable<User[]> {
-//     return this.httpClient.get<User[]>("http://localhost:44359/api/UsersAdministration");
-//   }
-
   getUser(): Observable<User> {
     return this.httpClient.get<User>("https://localhost:44359/api/UsersAdministartion");
   }
 
   postUser(User: User): Observable<User> {
-    // let headers = new HttpHeaders();
-    // headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+
 
     return this.httpClient.post<User>("https://localhost:44359/api/UsersAdministration", User);
   }
