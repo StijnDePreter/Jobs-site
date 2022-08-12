@@ -1,5 +1,7 @@
-<p>my-companies works!</p>
 
-<app-Company *ngFor="let company of companies" [company]="company"></app-Company>
 
+<div class="list-group">
+    <app-Company *ngFor="let company of companies" [company]="company"></app-Company>
+</div>
 <button type="button" class="btn btn-success addBtn" (click)="add()"><i class="fas fa-plus"></i> Add new company</button>
+

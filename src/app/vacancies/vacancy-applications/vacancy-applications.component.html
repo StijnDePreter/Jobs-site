@@ -1,5 +1,12 @@
-<article *ngIf="application">
+<!-- <article *ngIf="application">
     <h1>{{application.user.userName}}</h1>
     <h4>{{application.user.userName}}</h4>
     <h4>{{application.motivation}}</h4>
-</article>
+</article> -->
+
+<div class="card">
+    <div class="card-body">
+        {{application.user.userName}} Has applied with motivation:
+        <em>{{application.motivation}} </em> 
+    </div>
+  </div>

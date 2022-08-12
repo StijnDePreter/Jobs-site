@@ -13,9 +13,9 @@ export class AllVacanciesComponent implements OnInit {
 
   Vacancies$: Observable<VacancyWithCompany[]> = new Observable<VacancyWithCompany[]>();
 
-  term: string = ""
-
-  AlreadySorted: boolean = false
+  term: string = "";
+  AlreadySorted: boolean = false;
+  sortOrder: string = "";
 
   constructor(private VacancyService: VacancyService) { }
 
@@ -32,8 +32,8 @@ export class AllVacanciesComponent implements OnInit {
       this.Vacancies$ = this.Vacancies$.pipe(map((Vacancies: any[]) => {
         Vacancies.sort((a, b) => {
           return a.expirationDate > b.expirationDate ? 1 : -1;
-          //functie gevonden op het internet: nog uit te zoeken hoe dit werkt!
         });
+        this.sortOrder = "↑"
         return Vacancies;
       }))
     }
@@ -42,8 +42,8 @@ export class AllVacanciesComponent implements OnInit {
       this.Vacancies$ = this.Vacancies$.pipe(map((Vacancies: any[]) => {
         Vacancies.sort((a, b) => {
           return a.expirationDate > b.expirationDate ? -1 : 1;
-          //functie gevonden op het internet: nog uit te zoeken hoe dit werkt!
         });
+        this.sortOrder = "↓"
         return Vacancies;
       }))
     }

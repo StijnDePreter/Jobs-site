@@ -36,6 +36,8 @@ export class VacancyComponent implements OnInit {
     company: {id: 0,name: "", description: "",picture: ""},
 };
 
+  expirationDate: Date = new Date();
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {

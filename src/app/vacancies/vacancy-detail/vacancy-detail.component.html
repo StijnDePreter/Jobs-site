@@ -1,11 +1,9 @@
-<p>vacancy-detail works!</p>
-
-<article *ngIf="vacancy">
+<!-- <article *ngIf="vacancy">
     <h1>{{vacancy.title}}</h1>
     <h4>{{vacancy.company.name}}</h4>
     <h4>{{vacancy.expirationDate}}</h4>
     <div *ngIf="!myApplication">
-    <button (click)="applyForVacancy(vacancy.id)">try getting this job</button>
+        <button (click)="applyForVacancy(vacancy.id)">try getting this job</button>
     </div>
 
     <div *ngIf="myApplication">
@@ -14,11 +12,30 @@
         </p>
         <button (click)="deleteApplication()">Delete application</button>
     </div>
-</article>
+</article> -->
 
-<div *ngIf="applications.length > 0">
-    next up: the canditates:
-    <app-vacancy-applications *ngFor="let application of applications" [application]="application"></app-vacancy-applications>
+<div class="card">
+    <h5 class="card-header">{{vacancy.title}}</h5>
+    <div class="card-body">
+        <h5 class="card-title">{{vacancy.company.name}}</h5>
+        <p class="card-text">{{vacancy.description}}</p>
+        <small class="text-muted">Apply until : {{vacancy.expirationDate.slice(0,10)}}</small>
+        <div *ngIf="!myApplication">
+            <button (click)="applyForVacancy(vacancy.id)">try getting this job</button>
+        </div>
+        <div *ngIf="myApplication">
+            <p>You have already applied for this job. You're motivation was:
+                {{myApplication.motivation}}
+            </p>
+            <button (click)="deleteApplication()">Delete application</button>
+        </div>
+    </div>
 </div>
 
 
+
+<div *ngIf="applications.length > 0">
+    Candidates:
+    <app-vacancy-applications *ngFor="let application of applications" [application]="application">
+    </app-vacancy-applications>
+</div>

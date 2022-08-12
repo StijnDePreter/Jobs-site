@@ -1,11 +1,29 @@
-<p>company-vacancies works!</p>
 
-<div *ngFor="let vacancy of Vacancies">
+<table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Vacancy</th>
+        <th scope="col">Expiration</th>
+        <th scope="col">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vacancy of Vacancies">
+        <td>{{vacancy.title}}</td>
+        <td>{{vacancy.expirationDate}}</td>
+        <td><button class="btn btn-light" (click)="edit(vacancy.id)">Edit this vacancy's information</button></td>
+      </tr>
+    </tbody>
+  </table>
+<!-- 
+<li *ngFor="let vacancy of Vacancies" class="list-group-item">
+    {{vacancy.title}} - {{vacancy.expirationDate}} <button (click)="edit(vacancy.id)">Edit this vacancy's information</button>
+</li> -->
+<!-- <div *ngFor="let vacancy of Vacancies">
     <h1>{{vacancy.title}}</h1>
     <h4>{{vacancy.expirationDate}}</h4>
-    <!-- <button (click)="Applications(Vacancy.id)">see applications of this vacancy</button> -->
     <button (click)="edit(vacancy.id)">Edit this vacancy's information</button>
 
-</div>
+</div> -->
 
 

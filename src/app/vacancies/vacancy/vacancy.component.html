@@ -1,6 +1,10 @@
-<article *ngIf="Vacancy">
-    <h1>{{Vacancy.title}}</h1>
-    <h4>{{Vacancy.expirationDate}}</h4>
-    <h4>{{Vacancy.company.name}}</h4>
-    <button (click)="detail(Vacancy.id)">Read more</button>
-</article>
+
+<div class="card text-white bg-primary mb-4" style="max-width: 18rem;">
+    <img *ngIf="Vacancy.company.picture" class="card-img-top" src="{{Vacancy.company.picture}}" alt="Company Logo">
+    <div class="card-header"><h5>{{Vacancy.title}} @ {{Vacancy.company.name}}</h5></div>
+    <div class="card-body">
+      <p class="card-title">Expiration: {{Vacancy.expirationDate.slice(0,10)}}</p>
+      <!-- <p class="card-text">{{Vacancy.description}}</p> -->
+      <button class="btn btn-info btn-lg" (click)="detail(Vacancy.id)">Read more</button>
+    </div>
+  </div>
