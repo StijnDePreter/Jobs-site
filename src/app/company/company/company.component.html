@@ -1,6 +1,11 @@
-<p>company works!</p>
 
-<article *ngIf="company">
+<!-- <article *ngIf="company">
     <h1>{{company.name}}</h1>
     <button (click)="detail(company.id)">Read more</button>
-</article>
+</article> -->
+
+<!-- <a (click)="detail(company.id)" class="list-group-item list-group-item-action active">{{company.name}}</a> -->
+
+<button (click)="detail(company.id)" type="button" class="list-group-item list-group-item-action">
+    {{company.name}}
+  </button>

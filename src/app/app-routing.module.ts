@@ -15,7 +15,6 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { ProfileFormComponent } from './user/profile-form/profile-form.component';
 import { UserRolesComponent } from './admin/user-roles/user-roles.component';
 import { CompanyAdminsComponent } from './admin/company-admins/company-admins.component';
-import { VacancyApplicationsComponent } from './vacancies/vacancy-applications/vacancy-applications.component';
 import { VacancyFormComponent } from './vacancies/vacancy-form/vacancy-form.component';
 
 
@@ -31,7 +30,6 @@ const routes: Routes = [
   { path: 'userprofile/edit', component: ProfileFormComponent},
   { path: 'users',  component: UserRolesComponent},
   { path: 'companyadmins',  component: CompanyAdminsComponent},
-  // { path: 'vacancyapplications/:id',  component: VacancyApplicationsComponent},
   { path: 'vacancyform', component: VacancyFormComponent},
 
   { path: 'login', component: SecurityComponent},

@@ -1,17 +1,14 @@
-<p>je solliciteerd voor  {{vacancy.title}} at {{vacancy.company.name}}</p>
+<p>You are applying for {{vacancy.title}} at {{vacancy.company.name}}</p>
 
 
 <div class="alert alert-danger" role="alert" *ngIf="isSubmitted && errorMessage">
   {{errorMessage}}
 </div>
-<div class="alert alert-warning" role="warning">
-  <p>Form Status: {{ applicationForm.status }}</p>
-</div>
 <form (ngSubmit)="onSubmit()" [formGroup]="applicationForm">
   <div class="form-group">
-    <label for="motivation">Motivation</label>
+    <label for="motivation">Enter your motivation:</label>
     <input type="text" class="form-control" id="motivation" motivation="motivation" placeholder="Motivation" formControlName="motivation">
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!applicationForm.valid || isSubmitted">apply</button>
+  <button type="submit" class="btn btn-primary" [disabled]="!applicationForm.valid || isSubmitted">Apply</button>
    
 </form>
