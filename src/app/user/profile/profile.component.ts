@@ -24,7 +24,6 @@ export class ProfileComponent implements OnInit {
 
   
   users$: Subscription = new Subscription();
-  // deleteCompanie$: Subscription = new Subscription();
 
   errorMessage: "" = '';
 
@@ -38,7 +37,6 @@ export class ProfileComponent implements OnInit {
     this.users$ = this.UserService.getUser().subscribe(result => this.user = result);
   }
   edit() {
-    console.log("edit view called");
     this.router.navigate(['/userprofile/edit']);
   }
 

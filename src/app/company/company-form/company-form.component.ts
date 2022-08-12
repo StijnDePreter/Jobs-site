@@ -35,14 +35,12 @@ export class CompanyFormComponent implements OnInit, OnDestroy {
 
   imageSrc: string = '';
 
-  // reactive form
   companyForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
     picture: new FormControl('')
   });
 
-  // Uploading image
   ref: AngularFireStorageReference | undefined;
   task: AngularFireUploadTask | undefined;
   filePath = `Pictures/`;
@@ -55,8 +53,6 @@ export class CompanyFormComponent implements OnInit, OnDestroy {
     this.companyId = +this.router.getCurrentNavigation()?.extras.state?.id;
 
     if (this.companyId != null && this.companyId > 0) {
-      console.log("form wordt ingevuld")
-      console.log(this.companyForm.value);
       this.company$ = this.companyService.getCompanyById(this.companyId).subscribe(result => {
         this.imageSrc = result.picture;
         this.companyForm.setValue({
@@ -108,11 +104,8 @@ export class CompanyFormComponent implements OnInit, OnDestroy {
   }
 
   submitData() {
-    // voorgaande code
     if (this.isAdd) {
-      console.log(this.companyForm.value);
       this.postCompany$ = this.companyService.postCompany(this.companyForm.value).subscribe(result => {
-        //all went well
         this.router.navigateByUrl("/mycompanies");
       },
         error => {
@@ -120,10 +113,7 @@ export class CompanyFormComponent implements OnInit, OnDestroy {
         });
     }
     if (this.isEdit) {
-      // this.companyForm.addControl("id", this.companyForm)
-      console.log(this.companyForm);
       this.putCompany$ = this.companyService.putCompany(this.companyId, this.companyForm.value).subscribe(result => {
-        //all went well
         this.router.navigateByUrl("/mycompanies");
       },
         error => {

@@ -27,7 +27,6 @@ export class AdminService {
   }
 
   putUser(user: User): Observable<User> {
-    console.log(user);
     return this.httpClient.put<User>("https://localhost:44359/api/UsersAdministartion/UserRole", user);
   }
 
@@ -40,7 +39,6 @@ export class AdminService {
   }
 
   putCompany(id: number, company: Company): Observable<Company> {
-    console.log(id, company);
     return this.httpClient.put<Company>("https://localhost:44359/api/Companies/" + id, company);
   }
 

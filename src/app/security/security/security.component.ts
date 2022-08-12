@@ -63,19 +63,7 @@ export class SecurityComponent implements OnInit {
 
     if (this.isLogin) {
       this.Login();
-      // this.authService.authenticate(this.user).subscribe(result => {
-      //   this.errorMessage = '';
-      //   // save access token localstorage
-      //   localStorage.setItem('token', result.token);
-
-      //   localStorage.setItem('id', result.id.toString());
-      //   localStorage.setItem('email', result.email);
-      //   localStorage.setItem('userRole', result.userRole.name);
-      //   this.router.navigate(['']);
-      // }, error => {
-      //   this.errorMessage = 'Email/password not correct!';
-      //   this.isSubmitted = false;
-      // });
+      
     } 
 
 
@@ -85,12 +73,6 @@ export class SecurityComponent implements OnInit {
         this.isSubmitted = true;
         this.authService.register(this.user).subscribe(result => {
           this.errorMessage = '';
-          // // save access token localstorage
-          // localStorage.setItem('token', result.token);
-  
-          // localStorage.setItem('id', result.id.toString());
-          // localStorage.setItem('email', result.email);
-          // localStorage.setItem('userRole', result.userRole.name);
           this.Login();
         }, error => {
           this.errorMessage = error.error.message;
@@ -106,8 +88,6 @@ export class SecurityComponent implements OnInit {
   Login(): void {
     this.authService.authenticate(this.user).subscribe(result => {
       this.errorMessage = '' + 'login error';
-      console.log("login");
-      console.log(result);
 
       
       // save access token localstorage

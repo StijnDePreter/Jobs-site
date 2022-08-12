@@ -26,11 +26,6 @@ import { AdminModule } from './admin/admin.module';
     AppComponent,
     MenuComponent,
     HomeComponent,
-    //AllVacanciesComponent,
-    //VacancyComponent,
-    //FilterListPipe,
-    // VacancyDetailComponent,
-    //ApplicationFormComponent
   ],
   imports: [
     BrowserModule,

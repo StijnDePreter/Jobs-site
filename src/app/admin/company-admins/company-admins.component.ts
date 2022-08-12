@@ -32,7 +32,6 @@ export class CompanyAdminsComponent implements OnInit {
   constructor(private AdminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
-    // this.users = this.UserService.getUsers();
     this.getAllCompanyAdmins();
     this.getCompanies();
   }
@@ -53,7 +52,6 @@ export class CompanyAdminsComponent implements OnInit {
 
     if (this.changingCompany.id > 0) {
       this.putCompany$ = this.AdminService.putCompany(this.changingCompany.id, this.changingCompany).subscribe(result => {
-        console.log("all went well");
         this.getCompanies();
       },
         error => {
